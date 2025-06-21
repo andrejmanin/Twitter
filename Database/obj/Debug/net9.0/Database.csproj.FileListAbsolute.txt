@@ -12,3 +12,4 @@ F:\Rider_Projects\Twitter\Database\obj\Debug\net9.0\refint\Database.dll
 F:\Rider_Projects\Twitter\Database\obj\Debug\net9.0\Database.pdb
 F:\Rider_Projects\Twitter\Database\obj\Debug\net9.0\Database.genruntimeconfig.cache
 F:\Rider_Projects\Twitter\Database\obj\Debug\net9.0\ref\Database.dll
+F:\Rider_Projects\Twitter\Database\obj\Debug\net9.0\Database.sourcelink.json
