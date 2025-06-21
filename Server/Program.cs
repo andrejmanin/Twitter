@@ -16,6 +16,13 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+    options.AddPolicy("AllowReactApp", policy =>
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+    ));
 
 // builder.Services.AddControllers()
 //     .AddJsonOptions(opts => {
@@ -31,5 +38,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowReactApp");
 app.MapControllers();
 app.Run();
