@@ -12,13 +12,13 @@ public class PostService
     public PostService()
     {
         _httpClient = new HttpClient();
-        _httpClient.BaseAddress = new Uri("http://localhost:5036/api/posts");
-        _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+        _httpClient.BaseAddress = new Uri("http://localhost:5036");
     }
 
     public async Task<ObservableCollection<PostDto>> GetPosts()
     {
         var posts = await _httpClient.GetFromJsonAsync<ObservableCollection<PostDto>>("api/posts/get/all");
+        Console.WriteLine(posts);
         return posts ??  new ObservableCollection<PostDto>();
     }
 }
