@@ -5,12 +5,14 @@ using System.Windows;
 using Client.Models;
 using Client.Models.DTO.CommentDtos;
 using Client.Models.DTO.PostDtos;
+using Client.Services;
 
 namespace Client.ViewModels;
 
 public class MainViewModel : INotifyPropertyChanged
 {
     private readonly PostService _postService;
+    private readonly UserService _userService;
     
     public ObservableCollection<PostDto>  Posts { get; set; } = new ObservableCollection<PostDto> { new PostDto()
     {

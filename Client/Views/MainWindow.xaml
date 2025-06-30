@@ -47,12 +47,36 @@
                          Width="Auto">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="#D9D9D9" CornerRadius="10" Padding="10" Margin="0,20,0,10" MinWidth="400" MaxWidth="600">
+                            <Border Background="#D9D9D9" CornerRadius="10" Padding="10" Margin="0,0,0,10" MinWidth="400" MaxWidth="600">
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+
+                                    <!-- Заголовок: користувач і дата -->
+                                    <DockPanel Margin="0,0,0,5">
+                                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                                            <TextBlock Text="{Binding UserNickname}" FontWeight="Bold" />
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Created, StringFormat={}{0:dd.MM.yyyy HH:mm}}" 
+                                                   Foreground="Gray" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                                    </DockPanel>
+                                    
+                                    <!-- Роздільник -->
+                                    <Separator Margin="0,5"
+                                               Background="#d1d1d1"  
+                                               Height="1"/> <!-- 66 = 40% прозорості чорного -->
+
+                                    <!-- Контент поста -->
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold" Margin="0,0,0,2"/>
                                     <TextBlock Text="{Binding Content}" TextWrapping="Wrap"/>
+
+                                    <!-- Лайки та дизлайки -->
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                                        <TextBlock Text="❤️" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Likes}" Margin="0,0,15,0"/>
+                                        <TextBlock Text="👎" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Dislikes}"/>
+                                    </StackPanel>
                                 </StackPanel>
-                            </Border>  
+                            </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
