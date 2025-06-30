@@ -14,9 +14,9 @@ namespace Client.Views;
 
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    public MainWindow(string email)
     {
         InitializeComponent();
-        DataContext = new MainViewModel();
+        DataContext = new MainViewModel(email);
     }
 }

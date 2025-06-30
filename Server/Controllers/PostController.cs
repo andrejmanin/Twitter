@@ -23,7 +23,7 @@ public class PostController : Controller
     [HttpGet("get/by-id/{id}")]
     public async Task<IActionResult> GetPost([FromQuery] Guid id)
     {
-        Post? post = await _postService.GetPostAsync(id);
+        PostDto? post = await _postService.GetPostAsync(id);
         if(post is null) return NotFound();
         return Ok(post);
     }
@@ -31,19 +31,19 @@ public class PostController : Controller
     [HttpGet("get/by-title/{title}")]
     public async Task<IActionResult> GetPost([FromQuery] string title)
     {
-        Post? post = await _postService.GetPostAsync(title);
+        PostDto? post = await _postService.GetPostAsync(title);
         if(post is null) return NotFound();
         return Ok(post);
     }
 
     [HttpGet("get/all")]
-    public async Task<List<Post>?> GetAllPosts()
+    public async Task<List<PostDto>?> GetAllPosts()
     {
         return await _postService.GetPostsAsync();
     }
 
     [HttpGet("get/all/{userNickname}")]
-    public async Task<List<Post>?> GetAllPosts(string userNickname)
+    public async Task<List<PostDto>?> GetAllPosts(string userNickname)
     {
         return await _postService.GetPostsByUserNicknameAsync(userNickname);
     }
