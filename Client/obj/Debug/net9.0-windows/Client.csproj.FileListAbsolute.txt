@@ -3,10 +3,16 @@ F:\Rider_Projects\Twitter\Client\bin\Debug\net9.0-windows\Client.deps.json
 F:\Rider_Projects\Twitter\Client\bin\Debug\net9.0-windows\Client.runtimeconfig.json
 F:\Rider_Projects\Twitter\Client\bin\Debug\net9.0-windows\Client.dll
 F:\Rider_Projects\Twitter\Client\bin\Debug\net9.0-windows\Client.pdb
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\AuthorizationWindow.g.cs
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreateNewPost.g.cs
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreatePostWindow.g.cs
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\MainWindow.g.cs
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\App.g.cs
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client_MarkupCompile.cache
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client_MarkupCompile.lref
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\AuthorizationWindow.baml
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreateNewPost.baml
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreatePostWindow.baml
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\MainWindow.baml
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.g.resources
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.GeneratedMSBuildEditorConfig.editorconfig
@@ -19,7 +25,3 @@ F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\refint\Client.dll
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.pdb
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.genruntimeconfig.cache
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\ref\Client.dll
-F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreateNewPost.g.cs
-F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\CreateNewPost.baml
-F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\AuthorizationWindow.g.cs
-F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\AuthorizationWindow.baml
