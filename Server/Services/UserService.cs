@@ -53,6 +53,19 @@ public class UserService : IUserService
             Following = user.Following
         });
     }
+    
+    public async Task<bool> CheckUser(string email, string password)
+    {
+        User? user = await _context.Users
+            .Include(u => u.Country)
+            .Include(u => u.City)
+            .Include(u => u.Posts)
+            .Include(u => u.Followers)
+            .Include(u => u.Following)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Gmail == email && u.Password == password);
+        return await Task.FromResult(user != null);
+    }
 
     public async Task<List<UserDto>> GetUsersAsync()
     {

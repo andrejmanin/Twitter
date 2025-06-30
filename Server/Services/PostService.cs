@@ -67,41 +67,64 @@ public class PostService : IPostService
         return await DeletePostAsync(post);
     }
 
-    public async Task<Post?> GetPostAsync(Guid id)
+    public async Task<PostDto?> GetPostAsync(Guid id)
     {
-        return await _context.Posts
+        Post? post = await _context.Posts
             // .Include(p => p.User)    ---- Under question.
             .Include(p => p.Comments)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == id);
+        
+        if(post is null) return  null;
+        return await CreateDtoPost(post);
     }
 
-    public async Task<Post?> GetPostAsync(string title)
+    public async Task<PostDto?> GetPostAsync(string title)
     {
-        return await _context.Posts
+        Post? post = await _context.Posts
             // .Include(p => p.User)    ---- Under question.
             .Include(p => p.Comments)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Title == title);
+        if (post is null) return null;
+        return await CreateDtoPost(post);
     }
 
-    public async Task<List<Post>?> GetPostsAsync()
+    public async Task<List<PostDto>?> GetPostsAsync()
     {
-        return await _context.Posts
+        List<Post> posts = await _context.Posts
             // .Include(p => p.User)    ---- Under question.
             .Include(p => p.Comments)
             .AsNoTracking()
             .ToListAsync();
+        
+        List<PostDto> postDtos = new List<PostDto>();
+        foreach (var post in posts)
+        {
+            PostDto? postDto = await CreateDtoPost(post);
+            if(postDto is null) continue;
+            postDtos.Add(postDto);
+        }
+        return postDtos;
     }
 
-    public async Task<List<Post>?> GetPostsByUserNicknameAsync(string nickname)
+    public async Task<List<PostDto>?> GetPostsByUserNicknameAsync(string nickname)
     {
-        return await _context.Posts
+        List<Post> posts = await _context.Posts
             // .Include(p => p.User)    ---- Under question.
             .Include(p => p.Comments)
             .AsNoTracking()
             .Where(p => p.User.Nickname == nickname)
             .ToListAsync();
+        
+        List<PostDto> postDtos = new List<PostDto>();
+        foreach (var post in posts)
+        {
+            PostDto? postDto = await CreateDtoPost(post);
+            if(postDto is null) continue;
+            postDtos.Add(postDto);
+        }
+        return postDtos;
     }
     
     private async Task<bool> DeletePostAsync(Post post)
@@ -110,5 +133,22 @@ public class PostService : IPostService
         _context.Posts.Remove(post);
         await _context.SaveChangesAsync();
         return true;
+    }
+
+    private async Task<PostDto?> CreateDtoPost(Post post)
+    {
+        var userNickname = await _context.Users.FirstOrDefaultAsync(u => u.Id == post.UserId);
+        if(userNickname is null) return null;
+        return new PostDto
+        {
+            Id = post.Id,
+            UserNickname = userNickname.Nickname,
+            Title = post.Title,
+            Content = post.Content,
+            Created = post.Created,
+            Likes = post.Likes,
+            Dislikes = post.Dislikes,
+            Comments = post.Comments,
+        };
     }
 }

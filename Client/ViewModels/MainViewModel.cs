@@ -5,6 +5,7 @@ using System.Windows;
 using Client.Models;
 using Client.Models.DTO.CommentDtos;
 using Client.Models.DTO.PostDtos;
+using Client.Models.DTO.UserDtos;
 using Client.Services;
 
 namespace Client.ViewModels;
@@ -35,12 +36,21 @@ public class MainViewModel : INotifyPropertyChanged
             Likes = 0, Dislikes = 0
         }
     };
+
+    private UserDto _user;
+    public UserDto User
+    {
+        get => _user;
+        set => SetField(ref _user, value);
+    }    
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public MainViewModel()
+    public MainViewModel(string email)
     {
         _postService = new PostService();
+        _userService = new UserService();
         _ = LoadPostsAsync();
+        _ = LoadUserInfoAsync(email);
     }
 
     private async Task LoadPostsAsync()
@@ -53,12 +63,25 @@ public class MainViewModel : INotifyPropertyChanged
             foreach (var post in postsFromApi)
             {
                 Posts.Add(post);
-                Console.WriteLine(post.Id + " " + post.Title);
             }
         }
         catch (Exception e)
         {
             MessageBox.Show($"Error in getting posts: {e.Message}");
+        }
+    }
+
+    private async Task LoadUserInfoAsync(string email)
+    {
+        try
+        {
+            var userInfo = await _userService.GetUserByEmail(email);
+            User = userInfo;
+            Console.WriteLine(User.Name + User.Nickname);
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show($"Error in getting user info: {e.Message}");
         }
     }
     

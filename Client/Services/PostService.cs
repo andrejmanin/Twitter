@@ -10,7 +10,6 @@ public class PostService
     {
         string url = "api/posts/get/all";
         var posts = await HttpClientBase.HttpClient.GetFromJsonAsync<ObservableCollection<PostDto>>(url);
-        Console.WriteLine(posts);
         return posts ??  new ObservableCollection<PostDto>();
     }
 }

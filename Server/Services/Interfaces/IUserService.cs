@@ -5,6 +5,7 @@ namespace Server.Services.Interfaces;
 
 public interface IUserService
 {
+    Task<bool> CheckUser(string email, string password);
     Task<List<UserDto>> GetUsersAsync();
     Task<UserDto?> GetUserAsync(Guid id);
     Task<UserDto?> GetUserAsync(string email);

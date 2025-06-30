@@ -9,8 +9,8 @@ public interface IPostService
     Task<bool> UpdatePostAsync(UpdatePostDto post);
     Task<bool> DeletePostAsync(Guid id);
     Task<bool> DeletePostAsync(string title);
-    Task<Post?> GetPostAsync(Guid id);
-    Task<Post?> GetPostAsync(string title);
-    Task<List<Post>?> GetPostsAsync();
-    Task<List<Post>?> GetPostsByUserNicknameAsync(string nickname);
+    Task<PostDto?> GetPostAsync(Guid id);
+    Task<PostDto?> GetPostAsync(string title);
+    Task<List<PostDto>?> GetPostsAsync();
+    Task<List<PostDto>?> GetPostsByUserNicknameAsync(string nickname);
 }

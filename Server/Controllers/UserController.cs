@@ -20,6 +20,12 @@ public class UserController : Controller
         if(response != "User was created") return BadRequest(response);
         return Ok(response);
     }
+
+    [HttpGet("checkUser")]
+    public async Task<IActionResult> CheckUser(string email, string password)
+    {
+        return Ok(await _userService.CheckUser(email, password));
+    }
     
     [HttpGet("getUsers")]
     public async Task<IActionResult> GetUsers()
