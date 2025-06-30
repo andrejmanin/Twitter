@@ -18,7 +18,7 @@
             <StackPanel>
                 <Ellipse Width="50" Height="50" Fill="#582f2f"/>
                 <TextBlock Text="{Binding User.Name}" FontWeight="Bold" Margin="0,10,0,0" Foreground="#494949"/>
-                <TextBlock Text="{Binding User.Nickname}" Foreground="#7e7e7e"/>
+                <TextBlock x:Name="UserNickname" Text="{Binding User.Nickname}" Foreground="#7e7e7e"/>
                 <TextBlock Text="Description:" Margin="0,10,0,0" FontWeight="Bold" Foreground="#494949"/>
                 <TextBlock Text="{Binding User.Description}" TextWrapping="Wrap" FontSize="12" Foreground="#7e7e7e"/>
                 <!-- <Button Content="Settings" Margin="0,20,0,0"/> -->
@@ -112,8 +112,9 @@
             <StackPanel Orientation="Horizontal"> <!-- Spacing="20" -->
                 <Button Width="50" Height="50" Margin="0,0,5,0" Background="#D9D9D9" Content="≡"/> <!-- CornerRadius="15" -->
                 <Button Width="50" Height="50" Margin="0,0,5,0" Background="#D9D9D9" Content="🏠"/>
-                <Button Width="50" Height="50" Margin="0,0,0,0" Background="#D9D9D9" Content="+"/>
+                <Button Click="CreateNewPost" Width="50" Height="50" Margin="0,0,0,0" Background="#D9D9D9" Content="+"/>
             </StackPanel>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,60,0,0"/>
         </DockPanel>
     </Grid>
 </Window>

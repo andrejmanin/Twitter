@@ -14,9 +14,19 @@ namespace Client.Views;
 
 public partial class MainWindow : Window
 {
-    public MainWindow(string email)
+    private string _email;
+    
+    public MainWindow(string email) 
     {
         InitializeComponent();
         DataContext = new MainViewModel(email);
+        _email = email;
+    }
+
+    private void CreateNewPost(object sender, RoutedEventArgs e)
+    {
+        var createPostWindow = new CreatePostWindow(UserNickname.Text);
+        createPostWindow.ShowDialog();
+        DataContext = new MainViewModel(_email);
     }
 }
