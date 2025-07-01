@@ -88,9 +88,27 @@
                 /> <!-- CornerRadius="14" -->
 
         <!-- Bottom Link -->
-        <StackPanel VerticalAlignment="Bottom" Margin="0,0,0,20" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Don’t have an account? " FontSize="12"/>
-            <TextBlock Text="Sign up" FontSize="12" Foreground="#007AFF" Cursor="Hand" Margin="5,0,0,0"/>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" Margin="0,0,0,20">
+    
+            <!-- Текст зліва -->
+            <TextBlock Text="Don’t have an account?" 
+                       FontSize="13" 
+                       VerticalAlignment="Center"
+                       Foreground="#555" 
+                       Margin="0,0,6,0"/>
+
+            <!-- Кнопка справа -->
+            <Button Content="Sign Up"
+                    Click="SingUpButtonClick"
+                    Background="Transparent"
+                    Foreground="#007AFF"
+                    FontSize="13"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Padding="0"
+                    Cursor="Hand"
+                    VerticalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>

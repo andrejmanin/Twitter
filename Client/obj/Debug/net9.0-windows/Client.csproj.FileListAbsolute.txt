@@ -25,3 +25,6 @@ F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\refint\Client.dll
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.pdb
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Client.genruntimeconfig.cache
 F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\ref\Client.dll
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\RegisterWindow.g.cs
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\App.baml
+F:\Rider_Projects\Twitter\Client\obj\Debug\net9.0-windows\Views\RegisterWindow.baml

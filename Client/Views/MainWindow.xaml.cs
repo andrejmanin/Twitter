@@ -19,14 +19,24 @@ public partial class MainWindow : Window
     public MainWindow(string email) 
     {
         InitializeComponent();
-        DataContext = new MainViewModel(email);
         _email = email;
+        UpdateDataContext();
     }
 
+    private void UpdatePostList(object sender, RoutedEventArgs e)
+    {
+        UpdateDataContext();
+    }
+    
     private void CreateNewPost(object sender, RoutedEventArgs e)
     {
         var createPostWindow = new CreatePostWindow(UserNickname.Text);
         createPostWindow.ShowDialog();
+        UpdateDataContext();
+    }
+
+    private void UpdateDataContext()
+    {
         DataContext = new MainViewModel(_email);
     }
 }

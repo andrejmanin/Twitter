@@ -16,7 +16,7 @@ public class PostService
 
     public async Task CreatePost(CreatePostDto post)
     {
-        string url = "api/posts/create";
+        string url = "api/posts/createUser";
 
         var response = await HttpClientBase.HttpClient.PostAsJsonAsync(url, post);
 

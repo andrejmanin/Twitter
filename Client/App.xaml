@@ -4,5 +4,6 @@
              xmlns:local="clr-namespace:Client"
              StartupUri="Views/AuthorizationWindow.xaml">
     <Application.Resources>
+        <DropShadowEffect x:Key="ShadowEffect" BlurRadius="10" ShadowDepth="4" Color="#22000000"/>
     </Application.Resources>
 </Application>

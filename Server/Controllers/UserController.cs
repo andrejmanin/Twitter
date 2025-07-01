@@ -14,7 +14,7 @@ public class UserController : Controller
     public UserController(IUserService userService) => _userService = userService;
 
     [HttpPost("createUser")]
-    public async Task<IActionResult> CreateUserAsync(CreateUserDto userDto)
+    public async Task<IActionResult> CreateUserAsync([FromBody] CreateUserDto userDto)
     {
         string response = await _userService.CreateUserAsync(userDto);
         if(response != "User was created") return BadRequest(response);
