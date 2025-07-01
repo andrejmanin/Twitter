@@ -26,4 +26,15 @@ public class UserService
         var isValid = await HttpClientBase.HttpClient.GetFromJsonAsync<bool>(url);
         return isValid;
     }
+
+    public static async Task CreateNewUser(CreateUserDto dto)
+    {
+        string url = $"api/user/createUser";
+        var responce = await HttpClientBase.HttpClient.PostAsJsonAsync(url, dto);
+        if (!responce.IsSuccessStatusCode)
+        {
+            var error = await responce.Content.ReadAsStringAsync();
+            throw new Exception(error);
+        }
+    }
 }

@@ -12,22 +12,44 @@ public partial class AuthorizationWindow : Window
 
     private async void SignInButtonClick(object sender, RoutedEventArgs e)
     {
-        string email = EmailField.Text;
-        string password = PasswordField.Password;
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        try
         {
-            MessageBox.Show("Email or password is empty");
-            return;
+            string email = EmailField.Text;
+            string password = PasswordField.Password;
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Email or password is empty");
+                return;
+            }
+            AuthorizationViewModel vm = new AuthorizationViewModel();
+            var result = await vm.CheckUser(email, password);
+            if (!result)
+            {
+                MessageBox.Show("Email or password is incorrect");
+                return;
+            }
+            var mainWindow = new MainWindow(email);
+            mainWindow.Show();
+            this.Close();
         }
-        AuthorizationViewModel vm = new AuthorizationViewModel();
-        var result = await vm.CheckUser(email, password);
-        if (!result)
+        catch (Exception ex)
         {
-            MessageBox.Show("Email or password is incorrect");
-            return;
+            MessageBox.Show(ex.Message);
         }
-        var mainWindow = new MainWindow(email);
-        mainWindow.Show();
-        this.Close();
+    }
+
+    private void SingUpButtonClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            throw;
+        }
     }
 }
